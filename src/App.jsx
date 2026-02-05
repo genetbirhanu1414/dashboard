@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
-import Dashboard from './pages/Dashboard';
+import Dashboard from './Pages/Dashboard';
+import HotelProfiles from './Pages/Hotelprofile'
 import { User, Search } from "lucide-react";
 
 export default function App() {
@@ -9,7 +10,7 @@ export default function App() {
       <div className="flex min-h-screen bg-slate-50">
         <Sidebar />
         <div className="flex-1 flex flex-col">
-          {/* Header Bar */}
+      
           <header className="h-16 bg-white border-b flex items-center justify-between px-8">
             <div className="relative w-72">
               <Search className="absolute left-3 top-2.5 h-4 w-4 text-slate-400" />
@@ -21,13 +22,17 @@ export default function App() {
             </div>
           </header>
 
-          {/* Main Content */}
           <main className="p-8">
             <Routes>
-              <Route path="/" element={<Dashboard />} />
-              <Route path="/dashboard" element={<Dashboard />} />
-              {/* Future routes like /company-profiles go here */}
-            </Routes>
+  <Route path="/" element={<Dashboard />} />
+  <Route path="/dashboard" element={<Dashboard />} />
+  
+  <Route path="/company" element={<div>Company Profiles Page</div>} />
+  
+  <Route path="/hotels" element={<HotelProfiles />} />
+
+  <Route path="/users" element={<div>Users Management Page</div>} />
+</Routes>
           </main>
         </div>
       </div>
